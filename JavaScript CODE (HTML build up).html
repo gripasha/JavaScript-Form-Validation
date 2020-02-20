@@ -11,62 +11,60 @@
 	<p> <hr color="gold width="100%"> </p>		
 <body>
 <script>
-		var divs = 
-		[
+	var divs = [
 		  "errorFName", 
 		  "errorLName", 
 		  "errorEmail",
-		];
-		
+				];
+	
 function validation_procedure()
 		{
-			var inputs = [];
-			inputs[0] = document.getElementById("FName").value;
-			inputs[1] = document.getElementById("LName").value;
-			inputs[2] = document.getElementById("email").value;
+		var inputs = [];
+		inputs[0] = document.getElementById("FName").value;
+		inputs[1] = document.getElementById("LName").value;
+		inputs[2] = document.getElementById("email").value;
 
-			var errors = [];
-			errors[0] = "<span style='color:blue'> First name Error!</span>"
-			errors[1] = "<span style='color:blue'> Last name Error!</span>"
-			errors[2] = "<span style='color:blue'> Email address Error!</span>"
+		var errors = [];
+		errors[0] = "<span style='color:blue'> First name Error!</span>"
+		errors[1] = "<span style='color:blue'> Last name Error!</span>"
+		errors[2] = "<span style='color:blue'> Email address Error!</span>"
 			
-			var i;
-			for (i=0; i<inputs.length; i++)
-			{
-				var errorMessage = errors[i];
-				var entry = divs[i];
+		var i;
+		for (i=0; i<inputs.length; i++)
+		{
+			var errorMessage = errors[i];
+			var entry = divs[i];
 				
-				if (inputs[i] == "")
-				document.getElementById(entry).innerHTML = errorMessage;
+			if (inputs[i] == "")
+			document.getElementById(entry).innerHTML = errorMessage;
 
-				else if (i == 2)
-				{
-					var atpos = inputs[i].indexOf("@");  
-					var dotpos = inputs[i].lastIndexOf("."); 
+		else if (i == 2)
+			{
+				var atpos = inputs[i].indexOf("@");  
+				var dotpos = inputs[i].lastIndexOf("."); 
 					
-					if (atpos < 1 || dotpos < atpos + 2 || dotpos >= inputs[i].length)
-					document.getElementById(entry).innerHTML = "<span style = 'color:blue' > Email address is NOT valid!</span>";
-					
-					else
-					document.getElementById(entry).innerHTML = "Good!";
-				}
+				if (atpos < 1 || dotpos < atpos + 2 || dotpos >= inputs[i].length)
+				document.getElementById(entry).innerHTML = "<span style = 'color:blue' > Email address is NOT valid!</span>";
+				else
+				document.getElementById(entry).innerHTML = "Good!";
+			}
 				else
 				document.getElementById(entry).innerHTML = "Good!";
 			}
 		}
 
-		function finalvalidation_procedure()
+	function finalvalidation_procedure()
 		{
-			var i;
-			var flag = 1;
-			for (i=0; i<divs.length; i++)
+		var i;
+		var flag = 1;
+		for (i=0; i<divs.length; i++)
 			{
-			if (document.getElementById(divs[i]).innerHTML != "Good!")
-			flag = 0;
+				if (document.getElementById(divs[i]).innerHTML != "Good!")
+				flag = 0;
 			}
 			
-			if (flag == 1) 
-			document.getElementById("errorFinal").innerHTML = "Data entered was validated and is correct!"
+		if (flag == 1) 
+		document.getElementById("errorFinal").innerHTML = "Data entered was validated and is correct!"
 		}
 	</script>
 <center>
